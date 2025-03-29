@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+</head>
+<body>
+    <h2>Adicionar Item tabela</h2>
+
+    <input id = "texto" type="text" placeholder="Digite">
+    <button  id="adicionar" type="submit" onclick="adicionartabela()">Adicionar</button>
+    <br>
+
+    <h2>Tabela de itens</h2>
+    <table id="table" border="1px">
+        <thead>
+            <th>Item</th>
+        </thead>
+        <tbody id="tbody">
+            <td></td>
+        </tbody>  
+    </table>
+    <br>
+    <h2>Marcar ou Desmarcar o item</h2>
+    <h5>Escolha o item:</h5>
+    <select id="item" name="selecionar">
+        <option>selecionar</option>
+    </select>
+    <button id="marcar">Marcar</button>
+    <button id="desmarcar">Desmarcar </button>
+    <button id="remover">Remover item</button>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
