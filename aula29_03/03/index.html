@@ -50,6 +50,25 @@
         #listas {
             margin-top: 10px;
         }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        td {
+            padding: 8px;
+            text-align: left;
+        }
+
+        .marcado {
+            background-color: yellow;
+        }
     </style>
 </head>
 <body>
@@ -71,9 +90,20 @@
     <button id="adicionarLista">Adicionar Lista</button>
     <div id="listas"></div>
 
+    <h2>Tabela Dinâmica</h2>
+    <input type="text" id="itemInput" placeholder="Digite um item...">
+    <button id="adicionarItem">Adicionar</button>
+    <select id="menuItens"></select>
+    <button id="marcar">Marcar</button>
+    <button id="desmarcar">Desmarcar</button>
+    <button id="remover">Remover</button>
+    <table id="tabelaItens">
+        <tbody></tbody>
+    </table>
+
     <h2>Reset</h2>
     <button id="reset">Resetar Tudo</button>
 
-    <script src = "script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
