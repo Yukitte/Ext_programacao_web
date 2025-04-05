@@ -1,40 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documento</title>
+    <title>Página Interativa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        button, select, input {
+            margin: 5px;
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+
+        #contador {
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        #campoTexto {
+            width: 300px;
+        }
+
+        #caracteres {
+            font-size: 12px;
+            color: #666;
+        }
+
+        #mensagem-container p {
+            margin: 5px 0;
+            padding: 5px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+        }
+
+        ul, ol {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        #listas {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Adicionar Item tabela</h2>
+    <h2>Contador de Cliques</h2>
+    <button id="incrementar">Incrementar</button>
+    <button id="decrementar">Decrementar</button>
+    <span id="contador">0</span>
 
-    <input id = "texto" type="text" placeholder="Digite">
-    <button  id="adicionar" type="submit" onclick="adicionartabela()">Adicionar</button>
-    <br>
+    <h2>Adicionar Texto Dinâmico</h2>
+    <input type="text" id="campoTexto" placeholder="Digite algo...">
+    <p id="caracteres">Caracteres: 0</p>
+    <div id="mensagem-container"></div>
 
-    <h2>Tabela de itens</h2>
-    <table id="table" border="1px">
-        <thead>
-            <th>Item</th>
-        </thead>
-        <tbody id="tbody">
-            <td></td>
-        </tbody>  
-    </table>
-    <br>
-    <h2>Marcar ou Desmarcar o item</h2>
-    <h5>Escolha o item:</h5>
-    <select id="item" name="selecionar">
-        <option>selecionar</option>
+    <h2>Adicionar Novo Item</h2>
+    <select id="tipoLista">
+        <option value="ol">Lista Ordenada</option>
+        <option value="ul">Lista Não Ordenada</option>
     </select>
-    <button id="marcar">Marcar</button>
-    <button id="desmarcar">Desmarcar </button>
-    <button id="remover">Remover item</button>
+    <button id="adicionarLista">Adicionar Lista</button>
+    <div id="listas"></div>
 
+    <h2>Reset</h2>
+    <button id="reset">Resetar Tudo</button>
 
-
-    <script src="script.js"></script>
+    <script src = "script.js"></script>
 </body>
 </html>
