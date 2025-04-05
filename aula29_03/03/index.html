@@ -21,36 +21,6 @@
             font-size: 14px;
         }
 
-        #contador {
-            font-weight: bold;
-            margin-left: 10px;
-        }
-
-        #campoTexto {
-            width: 300px;
-        }
-
-        #caracteres {
-            font-size: 12px;
-            color: #666;
-        }
-
-        #mensagem-container p {
-            margin: 5px 0;
-            padding: 5px;
-            background-color: #e0e0e0;
-            border-radius: 4px;
-        }
-
-        ul, ol {
-            margin-top: 10px;
-            padding-left: 20px;
-        }
-
-        #listas {
-            margin-top: 10px;
-        }
-
         table {
             border-collapse: collapse;
             width: 100%;
@@ -61,7 +31,7 @@
             border: 1px solid #ccc;
         }
 
-        td {
+        th, td {
             padding: 8px;
             text-align: left;
         }
@@ -72,24 +42,6 @@
     </style>
 </head>
 <body>
-    <h2>Contador de Cliques</h2>
-    <button id="incrementar">Incrementar</button>
-    <button id="decrementar">Decrementar</button>
-    <span id="contador">0</span>
-
-    <h2>Adicionar Texto Dinâmico</h2>
-    <input type="text" id="campoTexto" placeholder="Digite algo...">
-    <p id="caracteres">Caracteres: 0</p>
-    <div id="mensagem-container"></div>
-
-    <h2>Adicionar Novo Item</h2>
-    <select id="tipoLista">
-        <option value="ol">Lista Ordenada</option>
-        <option value="ul">Lista Não Ordenada</option>
-    </select>
-    <button id="adicionarLista">Adicionar Lista</button>
-    <div id="listas"></div>
-
     <h2>Tabela Dinâmica</h2>
     <input type="text" id="itemInput" placeholder="Digite um item...">
     <button id="adicionarItem">Adicionar</button>
@@ -97,13 +49,19 @@
     <button id="marcar">Marcar</button>
     <button id="desmarcar">Desmarcar</button>
     <button id="remover">Remover</button>
+
     <table id="tabelaItens">
+        <thead>
+            <tr><th>Item</th></tr>
+        </thead>
         <tbody></tbody>
     </table>
 
     <h2>Reset</h2>
     <button id="reset">Resetar Tudo</button>
 
-    <script src="script.js"></script>
+    <script src="script.js">
+        
+    </script>
 </body>
 </html>
