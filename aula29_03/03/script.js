@@ -1,3 +1,4 @@
+// Contador de cliques
 let contador = 0;
 const contadorSpan = document.getElementById("contador");
 
@@ -15,40 +16,101 @@ document.getElementById("decrementar").addEventListener("click", () => {
     }
 });
 
+// Adicionar texto dinâmico e contar caracteres
 const campoTexto = document.getElementById("campoTexto");
+const caracteres = document.getElementById("caracteres");
 const mensagemContainer = document.getElementById("mensagem-container");
-const caracteresSpan = document.getElementById("caracteres");
 
 campoTexto.addEventListener("input", () => {
-    caracteresSpan.textContent = "Caracteres: " + campoTexto.value.replace(/\s/g, "").length;
+    const textoSemEspacos = campoTexto.value.replace(/\s/g, "");
+    caracteres.textContent = `Caracteres: ${textoSemEspacos.length}`;
 });
 
-campoTexto.addEventListener("keypress", (event) => {
-    if (event.key === "Enter" && campoTexto.value.trim() !== "") {
-        const p = document.createElement("p");
-        p.textContent = campoTexto.value;
-        mensagemContainer.appendChild(p);
-        campoTexto.value = "";
-        caracteresSpan.textContent = "Caracteres: 0";
+campoTexto.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        const texto = campoTexto.value.trim();
+        if (texto !== "") {
+            const p = document.createElement("p");
+            p.textContent = texto;
+            mensagemContainer.appendChild(p);
+            campoTexto.value = "";
+            caracteres.textContent = "Caracteres: 0";
+        }
     }
 });
 
+// Adicionar novo item: lista ordenada ou não ordenada
 document.getElementById("adicionarLista").addEventListener("click", () => {
     const tipo = document.getElementById("tipoLista").value;
     const lista = document.createElement(tipo);
-    for (let i = 1; i <= 3; i++) {
-        const item = document.createElement("li");
-        item.textContent = "Item " + i;
-        lista.appendChild(item);
-    }
+    const item = document.createElement("li");
+    item.textContent = "Novo Item";
+    lista.appendChild(item);
     document.getElementById("listas").appendChild(lista);
 });
 
+// Tabela dinâmica
+const tabela = document.getElementById("tabelaItens").querySelector("tbody");
+const selectMenu = document.getElementById("menuItens");
+
+function atualizarMenu() {
+    selectMenu.innerHTML = "";
+    [...tabela.children].forEach((row, index) => {
+        const option = document.createElement("option");
+        option.value = index;
+        option.textContent = row.cells[0].textContent;
+        selectMenu.appendChild(option);
+    });
+}
+
+document.getElementById("adicionarItem").addEventListener("click", () => {
+    const input = document.getElementById("itemInput");
+    const texto = input.value.trim();
+    if (texto !== "") {
+        const row = document.createElement("tr");
+        const cell = document.createElement("td");
+        cell.textContent = texto;
+        row.appendChild(cell);
+        tabela.appendChild(row);
+        input.value = "";
+        atualizarMenu();
+    }
+});
+
+document.getElementById("marcar").addEventListener("click", () => {
+    const index = selectMenu.value;
+    if (tabela.rows[index]) {
+        tabela.rows[index].classList.add("marcado");
+    }
+});
+
+document.getElementById("desmarcar").addEventListener("click", () => {
+    const index = selectMenu.value;
+    if (tabela.rows[index]) {
+        if (tabela.rows[index].classList.contains("marcado")) {
+            tabela.rows[index].classList.remove("marcado");
+        } else {
+            alert("Este item já está desmarcado.");
+        }
+    }
+});
+
+document.getElementById("remover").addEventListener("click", () => {
+    const index = selectMenu.value;
+    if (tabela.rows[index]) {
+        tabela.deleteRow(index);
+        atualizarMenu();
+    }
+});
+
+// Reset geral
 document.getElementById("reset").addEventListener("click", () => {
     contador = 0;
-    contadorSpan.textContent = contador;
+    contadorSpan.textContent = "0";
     mensagemContainer.innerHTML = "";
-    document.getElementById("listas").innerHTML = "";
     campoTexto.value = "";
-    caracteresSpan.textContent = "Caracteres: 0";
+    caracteres.textContent = "Caracteres: 0";
+    document.getElementById("listas").innerHTML = "";
+    tabela.innerHTML = "";
+    atualizarMenu();
 });
